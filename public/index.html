@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Live NSE and BSE portfolio, grouped by sector.">
+  <title>Folio</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="/">Folio</a>
+    <div class="session" id="session" hidden>
+      <span class="market-status" id="market-status"></span>
+      <button class="button" type="button" id="add-holding">Add holding</button>
+      <button class="button button-quiet" type="button" id="sign-out">Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <p class="loading" id="loading" role="status">Loading your portfolio</p>
+
+    <section class="auth" id="auth-view" hidden>
+      <h1 id="auth-title">Sign in</h1>
+      <p class="auth-intro">Keep your NSE and BSE holdings in one place, with live prices and gains grouped by sector.</p>
+      <form id="auth-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" maxlength="254" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" name="password" autocomplete="current-password" minlength="8" maxlength="72" required>
+          <small id="password-hint" hidden>Use at least 8 characters.</small>
+        </label>
+        <p class="form-message" id="auth-message" role="alert" hidden></p>
+        <button class="button" type="submit" id="auth-submit">Sign in</button>
+      </form>
+      <p class="auth-switch">
+        <span id="auth-switch-text">New to Folio?</span>
+        <button class="link-button" type="button" id="auth-switch">Create an account</button>
+      </p>
+    </section>
+
+    <section class="dashboard" id="dashboard-view" hidden>
+      <p class="notice" id="notice" role="status" hidden></p>
+
+      <dl class="statement" id="statement" aria-label="Portfolio summary" hidden>
+        <div class="statement-item">
+          <dt>Invested</dt>
+          <dd id="total-investment">&mdash;</dd>
+        </div>
+        <div class="statement-item">
+          <dt>Current value</dt>
+          <dd id="total-value">&mdash;</dd>
+        </div>
+        <div class="statement-item">
+          <dt>Gain or loss</dt>
+          <dd id="total-gain">&mdash;</dd>
+        </div>
+      </dl>
+
+      <div class="allocation" id="allocation" hidden>
+        <ol class="allocation-bar" id="allocation-bar" aria-label="Share of investment by sector"></ol>
+        <ul class="allocation-legend" id="allocation-legend"></ul>
+      </div>
+
+      <div class="empty" id="empty-state" hidden>
+        <h2>No holdings yet</h2>
+        <p>Add the stocks you own, or load a sample portfolio to see how the dashboard works.</p>
+        <div class="empty-actions">
+          <button class="button" type="button" id="empty-add">Add your first holding</button>
+          <button class="button button-quiet" type="button" id="load-sample">Load sample portfolio</button>
+        </div>
+      </div>
+
+      <section class="ledger" id="ledger-section" aria-labelledby="ledger-title" hidden>
+        <div class="ledger-heading">
+          <h2 id="ledger-title">Holdings</h2>
+          <p class="updated" id="updated-at"></p>
+        </div>
+        <div class="table-scroll" tabindex="0" role="region" aria-labelledby="ledger-title">
+          <table class="ledger-table" id="ledger">
+            <thead>
+              <tr>
+                <th scope="col">Particulars</th>
+                <th scope="col" class="num">Purchase price</th>
+                <th scope="col" class="num">Qty</th>
+                <th scope="col" class="num">Investment</th>
+                <th scope="col" class="num">Portfolio (%)</th>
+                <th scope="col">NSE/BSE</th>
+                <th scope="col" class="num">CMP</th>
+                <th scope="col" class="num">Present value</th>
+                <th scope="col" class="num">Gain/Loss</th>
+                <th scope="col" class="num">P/E</th>
+                <th scope="col" class="num">Latest earnings</th>
+                <th scope="col"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th scope="row">Portfolio total</th>
+                <td></td>
+                <td></td>
+                <td class="num" id="foot-investment"></td>
+                <td class="num">100.00</td>
+                <td></td>
+                <td></td>
+                <td class="num" id="foot-value"></td>
+                <td class="num" id="foot-gain"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <p class="disclaimer">
+        Prices come from Yahoo Finance. P/E and earnings come from Google Finance, with Yahoo as a fallback.
+        Both are unofficial sources, so figures can be delayed or wrong. This is not investment advice.
+      </p>
+    </section>
+  </main>
+
+  <dialog class="dialog" id="holding-dialog" aria-labelledby="holding-title">
+    <form id="holding-form">
+      <h2 id="holding-title">Add holding</h2>
+      <label class="field">
+        <span>Company name</span>
+        <input type="text" name="name" maxlength="80" autocomplete="off" required>
+      </label>
+      <div class="field-row">
+        <label class="field">
+          <span>Exchange</span>
+          <select name="exchange">
+            <option value="NSE">NSE</option>
+            <option value="BSE">BSE</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Ticker or BSE code</span>
+          <input type="text" name="symbol" maxlength="20" autocomplete="off" autocapitalize="characters" required>
+        </label>
+      </div>
+      <label class="field">
+        <span>Sector</span>
+        <input type="text" name="sector" list="sector-options" maxlength="40" autocomplete="off" required>
+        <datalist id="sector-options"></datalist>
+      </label>
+      <div class="field-row">
+        <label class="field">
+          <span>Purchase price (&#8377;)</span>
+          <input type="number" name="purchasePrice" min="0.01" max="10000000" step="0.01" inputmode="decimal" required>
+        </label>
+        <label class="field">
+          <span>Quantity</span>
+          <input type="number" name="quantity" min="1" max="100000000" step="1" inputmode="numeric" required>
+        </label>
+      </div>
+      <p class="form-message" id="holding-message" role="alert" hidden></p>
+      <div class="dialog-actions">
+        <button class="button button-quiet" type="button" id="holding-cancel">Cancel</button>
+        <button class="button" type="submit" id="holding-submit">Save holding</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

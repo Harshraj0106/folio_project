@@ -1,0 +1,234 @@
+[
+  {
+    "name": "HDFC Bank",
+    "exchange": "NSE",
+    "symbol": "HDFCBANK",
+    "sector": "Financials",
+    "purchasePrice": 1490,
+    "quantity": 50
+  },
+  {
+    "name": "Bajaj Finance",
+    "exchange": "NSE",
+    "symbol": "BAJFINANCE",
+    "sector": "Financials",
+    "purchasePrice": 6466,
+    "quantity": 15
+  },
+  {
+    "name": "ICICI Bank",
+    "exchange": "BSE",
+    "symbol": "532174",
+    "sector": "Financials",
+    "purchasePrice": 780,
+    "quantity": 84
+  },
+  {
+    "name": "Bajaj Housing",
+    "exchange": "BSE",
+    "symbol": "544252",
+    "sector": "Financials",
+    "purchasePrice": 130,
+    "quantity": 504
+  },
+  {
+    "name": "Savani Financials",
+    "exchange": "BSE",
+    "symbol": "511577",
+    "sector": "Financials",
+    "purchasePrice": 24,
+    "quantity": 1080
+  },
+  {
+    "name": "Affle India",
+    "exchange": "NSE",
+    "symbol": "AFFLE",
+    "sector": "Technology",
+    "purchasePrice": 1151,
+    "quantity": 50
+  },
+  {
+    "name": "LTIMindtree",
+    "exchange": "NSE",
+    "symbol": "LTIM",
+    "sector": "Technology",
+    "purchasePrice": 4775,
+    "quantity": 16
+  },
+  {
+    "name": "KPIT Technologies",
+    "exchange": "BSE",
+    "symbol": "542651",
+    "sector": "Technology",
+    "purchasePrice": 672,
+    "quantity": 61
+  },
+  {
+    "name": "Tata Technologies",
+    "exchange": "BSE",
+    "symbol": "544028",
+    "sector": "Technology",
+    "purchasePrice": 1072,
+    "quantity": 63
+  },
+  {
+    "name": "BLS E-Services",
+    "exchange": "BSE",
+    "symbol": "544107",
+    "sector": "Technology",
+    "purchasePrice": 232,
+    "quantity": 191
+  },
+  {
+    "name": "Tanla Platforms",
+    "exchange": "BSE",
+    "symbol": "532790",
+    "sector": "Technology",
+    "purchasePrice": 1134,
+    "quantity": 45
+  },
+  {
+    "name": "DMart",
+    "exchange": "NSE",
+    "symbol": "DMART",
+    "sector": "Consumer",
+    "purchasePrice": 3777,
+    "quantity": 27
+  },
+  {
+    "name": "Tata Consumer",
+    "exchange": "BSE",
+    "symbol": "532540",
+    "sector": "Consumer",
+    "purchasePrice": 845,
+    "quantity": 90
+  },
+  {
+    "name": "Pidilite",
+    "exchange": "BSE",
+    "symbol": "500331",
+    "sector": "Consumer",
+    "purchasePrice": 2376,
+    "quantity": 36
+  },
+  {
+    "name": "Tata Power",
+    "exchange": "BSE",
+    "symbol": "500400",
+    "sector": "Power",
+    "purchasePrice": 224,
+    "quantity": 225
+  },
+  {
+    "name": "KPI Green",
+    "exchange": "BSE",
+    "symbol": "542323",
+    "sector": "Power",
+    "purchasePrice": 875,
+    "quantity": 50
+  },
+  {
+    "name": "Suzlon",
+    "exchange": "BSE",
+    "symbol": "532667",
+    "sector": "Power",
+    "purchasePrice": 44,
+    "quantity": 450
+  },
+  {
+    "name": "Gensol",
+    "exchange": "BSE",
+    "symbol": "542851",
+    "sector": "Power",
+    "purchasePrice": 998,
+    "quantity": 45
+  },
+  {
+    "name": "Hariom Pipes",
+    "exchange": "BSE",
+    "symbol": "543517",
+    "sector": "Pipes",
+    "purchasePrice": 580,
+    "quantity": 60
+  },
+  {
+    "name": "Astral",
+    "exchange": "NSE",
+    "symbol": "ASTRAL",
+    "sector": "Pipes",
+    "purchasePrice": 1517,
+    "quantity": 56
+  },
+  {
+    "name": "Polycab",
+    "exchange": "BSE",
+    "symbol": "542652",
+    "sector": "Pipes",
+    "purchasePrice": 2818,
+    "quantity": 28
+  },
+  {
+    "name": "Clean Science",
+    "exchange": "BSE",
+    "symbol": "543318",
+    "sector": "Others",
+    "purchasePrice": 1610,
+    "quantity": 32
+  },
+  {
+    "name": "Deepak Nitrite",
+    "exchange": "BSE",
+    "symbol": "506401",
+    "sector": "Others",
+    "purchasePrice": 2248,
+    "quantity": 27
+  },
+  {
+    "name": "Fine Organic",
+    "exchange": "BSE",
+    "symbol": "541557",
+    "sector": "Others",
+    "purchasePrice": 4284,
+    "quantity": 16
+  },
+  {
+    "name": "Gravita",
+    "exchange": "BSE",
+    "symbol": "533282",
+    "sector": "Others",
+    "purchasePrice": 2037,
+    "quantity": 8
+  },
+  {
+    "name": "SBI Life",
+    "exchange": "BSE",
+    "symbol": "540719",
+    "sector": "Others",
+    "purchasePrice": 1197,
+    "quantity": 49
+  },
+  {
+    "name": "Infosys",
+    "exchange": "BSE",
+    "symbol": "500209",
+    "sector": "Technology",
+    "purchasePrice": 1647,
+    "quantity": 36
+  },
+  {
+    "name": "Happiest Minds",
+    "exchange": "BSE",
+    "symbol": "543237",
+    "sector": "Technology",
+    "purchasePrice": 1103,
+    "quantity": 45
+  },
+  {
+    "name": "EaseMyTrip",
+    "exchange": "BSE",
+    "symbol": "543272",
+    "sector": "Consumer",
+    "purchasePrice": 20,
+    "quantity": 1332
+  }
+]
